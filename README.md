@@ -6,4 +6,6 @@ Recolha de data sobre o desenvolvimento do Virus Covid-19 em Portugal
 
 * [DSSG](https://github.com/dssg-pt/covid19pt-data) 
 * [aperaltasantos](https://github.com/aperaltasantos/covid_pt)
+* [CSSEGISandData](https://github.com/CSSEGISandData/COVID-19/pull/1031)
+
 
