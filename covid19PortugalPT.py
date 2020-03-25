@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -453,4 +452,4 @@ data.append(dcc.Graph(id='example2',figure=fig_percentage_eu, className='col-sm-
 app.layout = html.Div(data,className='row')
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
