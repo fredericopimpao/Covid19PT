@@ -1,6 +1,6 @@
 # Civd19PT
 
-Recolha de data sobre o desenvolvimento do Virus Covid-19 em Portugal
+Visualização gráfica de dados sobre o desenvolvimento do virus Covid-19 em Portugal
 
 ## Data recolhida
 
