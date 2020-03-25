@@ -171,22 +171,22 @@ line_graphs_color=[['grey',
                 ['grey',
                 'black',
                 '#7FFFD4',
+                '#72e5be',
+                '#65cca9',
                 'red',
-                'grey',
-                'black',
-                '#7FFFD4',
-                'red',],
+                '#cc0000',
+                '#990000',],
                 
                 ['grey'],
 
                 ['grey',
                 'black',
                 '#7FFFD4',
+                '#72e5be',
+                '#65cca9',
                 'red',
-                'grey',
-                'black',
-                '#7FFFD4',
-                'red',],
+                '#cc0000',
+                '#990000',],
                 ]
 
 line_graphs_data=[[confirmados,
@@ -288,7 +288,7 @@ line_graphs = [fig_cases_pt,
 #Style
 
 line_y_axis_name=['numero de casos','numero de casos','percentagem','percentagem']
-line_title=['numero de casos em portugal','numero de casos em portugal por zona','percentagem de crescimento exponensial em portugal','percentagem de crescimento exponensial em portugal por zona']
+line_title=['numero de casos em portugal','numero de casos em portugal por zona','percentagem de crescimento em portugal','percentagem de crescimento em portugal por zona']
 for x, elements in enumerate(line_graphs):
     elements.update_layout(
         title={
@@ -329,7 +329,7 @@ for x, elements in enumerate(circle_graph):
         )
     )
     elements.update_traces(hoverinfo='label+percent', textinfo='value', textfont_size=14,
-                  marker=dict(colors=['black','#7FFFD4','red','LightGrey'], line=dict(color='#000000', width=.2)))
+                  marker=dict(colors=['black','#7FFFD4','#72e5be','#65cca9','LightGrey','red','#cc0000','#990000'], line=dict(color='#000000', width=.2)))
 
 
 #pip install dash
@@ -342,6 +342,7 @@ import dash_core_components as dcc
 server = flask.Flask('app')
 app = dash.Dash('app', server=server,
                 external_stylesheets=['https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'])
+app.title = 'Covid19PT'
 data = []
 
 
@@ -414,6 +415,20 @@ data.append(html.A(
         }
     ))
 
+
+
+data.append(dcc.Graph(id='example7',figure=fig_map, className='col-sm-12', style={'width': '50vh', 'height': '50vh'}))
+
+data.append(dcc.Graph(id='example2',figure=fig_cases_zones, className='col-sm-12'))
+data.append(dcc.Graph(id='example4',figure=fig_percentage_timeline_grow_zones, className='col-sm-12'))
+data.append(dcc.Graph(id='example1',figure=fig_cases_pt, className='col-sm-6'))
+data.append(dcc.Graph(id='example3',figure=fig_percentage_timeline_grow_pt, className='col-sm-6'))
+
+data.append(dcc.Graph(id='example80',figure=circle_graph[2], className='col-sm-6'))
+data.append(dcc.Graph(id='example81',figure=circle_graph[3], className='col-sm-6'))
+data.append(dcc.Graph(id='example79',figure=circle_graph[0], className='col-sm-6'))
+data.append(dcc.Graph(id='example5',figure=circle_graph[1], className='col-sm-6'))
+
 data.append(html.A(
         '+ informação sobre o projecto',
         href='https://github.com/fredericopimpao/Covid19PT', 
@@ -422,30 +437,21 @@ data.append(html.A(
         style={
             'color':'red',
             'margin-left': '7vh',
-            'fontSize': '1.2em',
+            'fontSize': '3em',
             'font-family':'Courier New, monospace',
         }
     ))
 
-data.append(dcc.Graph(id='example7',figure=fig_map, className='col-sm-12', style={'width': '50vh', 'height': '50vh'}))
-data.append(dcc.Graph(id='example2',figure=fig_cases_zones, className='col-sm-6'))
-data.append(dcc.Graph(id='example1',figure=fig_cases_pt, className='col-sm-6'))
-data.append(dcc.Graph(id='example3',figure=fig_percentage_timeline_grow_pt, className='col-sm-6'))
-data.append(dcc.Graph(id='example4',figure=fig_percentage_timeline_grow_zones, className='col-sm-6'))
-data.append(dcc.Graph(id='example80',figure=circle_graph[2], className='col-sm-6'))
-data.append(dcc.Graph(id='example81',figure=circle_graph[3], className='col-sm-6'))
-data.append(dcc.Graph(id='example79',figure=circle_graph[0], className='col-sm-6'))
-data.append(dcc.Graph(id='example5',figure=circle_graph[1], className='col-sm-6'))
-
-
-'''
-data.append(dcc.Graph(id='example6', figure=fig, className='col-sm-4'))
-data.append(dcc.Graph(id='example5', figure=fig, className='col-sm-4'))
-data.append(dcc.Graph(id='example4',figure=fig_beds, className='col-sm-4'))
-data.append(dcc.Graph(id='example',figure=fig_percentage_pt, className='col-sm-12'))
-data.append(dcc.Graph(id='example3',figure=fig_cases_eu, className='col-sm-12'))
-data.append(dcc.Graph(id='example2',figure=fig_percentage_eu, className='col-sm-12'))
-'''
+data.append(html.H5(
+        'os autores não terão responsabilidade para o licenciado ou outras pessoas por danos diretos, indiretos, especiais, incidentais, conseqüenciais, exemplares ou punitivos de qualquer personagem, incluindo, sem limitação de serviços, procuramentos, procuramentos dados ou lucros ou interrupção de negócios, causados e qualquer teoria de contrato, garantia, atribuição (incluindo negligência), responsabilidade do produto ou de outra forma, decorrendo de qualquer forma de uso do software, mesmo se avisado da possibilidade de tais danos.', 
+        className='col-sm-10',
+        style={
+            'color':'grey',
+            'margin-left': '7vh',
+            'fontSize': '1em',
+            'font-family':'Courier New, monospace',
+        }
+    ))
 
     
 
@@ -453,3 +459,5 @@ app.layout = html.Div(data,className='row')
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+
+
