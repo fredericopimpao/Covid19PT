@@ -1,6 +1,11 @@
 # Civd19PT
 
 Visualização gráfica de dados sobre o desenvolvimento do virus Covid-19 em Portugal
+* [website](https://covid19portugal.herokuapp.com/) 
+# doações
+
+[Paypal/visa](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=fredericopimpao@gmail.com&lc=US&item_name=Apoio+ao+desenvolvimento+de+grafismos+relacionados+com+covid19&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
+
 
 ## Data recolhida
 
