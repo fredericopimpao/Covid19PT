@@ -8,6 +8,8 @@ Visualização gráfica de dados sobre o desenvolvimento do virus Covid-19 em Po
 Bitcoin:
 bc1q3uzu67mjwn25h3c762nka6rg62xe6hhgwgr5rj
 
+## Contacto
+fredericopimpao@gmail.com
 
 ## Data recolhida
 
